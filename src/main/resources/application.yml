@@ -10,10 +10,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: validate
-    show-sql: ${SQL_SHOW}
+    show-sql: ${SQL_SHOW:true}
     properties:
       hibernate:
-        format_sql: ${SQL_FORMAT}
+        format_sql: ${SQL_FORMAT:true}
     open-in-view: false
 
   jackson:
@@ -21,3 +21,15 @@ spring:
 
   lifecycle:
     timeout-per-shutdown-phase: 20s
+
+jwt:
+  secret: ${SECRET_KEY}
+  access_exp: ${ACCESS_EXP}
+  refresh_exp: ${REFRESH_EXP}
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDiS_PORT}
+
+server:
+  port: 9090

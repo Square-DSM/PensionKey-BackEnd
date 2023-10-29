@@ -29,11 +29,11 @@ class User(
     val indentity: Int,
 
     @Column(columnDefinition = "VARCHAR(100)")
-    val certFile: String,
+    val certFile: String?,
 
     @Column(columnDefinition = "VARCHAR(100)")
-    val keyFile: String,
+    val keyFile: String?,
 
     @Column(columnDefinition = "VARCHAR(60)")
-    val certPassword: String
+    val certPassword: String?
 ): BaseUUIDEntity()

@@ -6,5 +6,5 @@ import java.util.UUID
 data class FeedElement(
     val title: String,
     val userId: UUID,
-    val createAt: LocalDate
+    val createdAt: LocalDate
 )

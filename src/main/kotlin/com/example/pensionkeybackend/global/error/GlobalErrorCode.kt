@@ -5,6 +5,8 @@ enum class GlobalErrorCode(
     private val message: String
 ) : ErrorProperty {
 
+    FEED_NOT_FOUND(404, "Feed Not Found"),
+
     BAD_REQUEST(400, "Bad Request"),
     PASSWORD_MISMATCH(400, "Password Mismatched"),
 

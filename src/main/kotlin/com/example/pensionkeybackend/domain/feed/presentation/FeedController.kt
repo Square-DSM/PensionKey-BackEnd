@@ -4,9 +4,11 @@ import com.example.pensionkeybackend.domain.feed.presentation.dto.request.Create
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.FeedElement
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedDetailsResponse
 import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
+import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import org.springframework.http.HttpStatus
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -22,7 +24,8 @@ import javax.validation.Valid
 class FeedController(
     private val createFeedService: CreateFeedService,
     private val queryFeedDetailsService: QueryFeedDetailsService,
-    private val queryFeedListService: QueryFeedListService
+    private val queryFeedListService: QueryFeedListService,
+    private val deleteFeedService: DeleteFeedService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -39,5 +42,10 @@ class FeedController(
     @GetMapping("/list")
     fun getFeedList(): List<FeedElement> {
         return queryFeedListService.execute()
+    }
+    
+    @DeleteMapping("/delete/{feed_id}")
+    fun deleteFeed(@PathVariable(name = "feed_id") feedId: UUID) {
+        deleteFeedService.execute(feedId)
     }
 }

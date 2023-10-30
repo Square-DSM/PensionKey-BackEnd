@@ -6,6 +6,7 @@ enum class GlobalErrorCode(
 ) : ErrorProperty {
 
     FEED_NOT_FOUND(404, "Feed Not Found"),
+    NOT_DELETE_FEED(401, "Not Delete Feed"),
 
     BAD_REQUEST(400, "Bad Request"),
     PASSWORD_MISMATCH(400, "Password Mismatched"),

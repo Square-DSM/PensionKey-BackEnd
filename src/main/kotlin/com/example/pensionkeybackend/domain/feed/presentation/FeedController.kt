@@ -1,9 +1,11 @@
 package com.example.pensionkeybackend.domain.feed.presentation
 
 import com.example.pensionkeybackend.domain.feed.presentation.dto.request.CreateFeedRequest
+import com.example.pensionkeybackend.domain.feed.presentation.dto.response.FeedElement
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedDetailsResponse
 import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
+import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -19,7 +21,8 @@ import javax.validation.Valid
 @RestController
 class FeedController(
     private val createFeedService: CreateFeedService,
-    private val queryFeedDetailsService: QueryFeedDetailsService
+    private val queryFeedDetailsService: QueryFeedDetailsService,
+    private val queryFeedListService: QueryFeedListService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -31,5 +34,10 @@ class FeedController(
     @GetMapping("/{feed_id}")
     fun getFeedDetails(@PathVariable(name = "feed_id") feedId: UUID) : QueryFeedDetailsResponse {
         return queryFeedDetailsService.execute(feedId)
+    }
+
+    @GetMapping("/list")
+    fun getFeedList(): List<FeedElement> {
+        return queryFeedListService.execute()
     }
 }

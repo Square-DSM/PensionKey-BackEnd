@@ -11,5 +11,5 @@ class QueryFeedListService(
 ) {
 
     @Transactional(readOnly = true)
-    fun execute() : List<FeedElement> = feedRepository.findAllByOOrderByCreatedAt()
+    fun execute() : List<FeedElement> = feedRepository.findAllByOrderByCreatedAt()
 }

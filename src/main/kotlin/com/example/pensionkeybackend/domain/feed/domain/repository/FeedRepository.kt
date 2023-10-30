@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 
 interface FeedRepository : CrudRepository<Feed, UUID> {
-    fun findAllByOOrderByCreatedAt(): List<FeedElement>
+    fun findAllByOrderByCreatedAt(): List<FeedElement>
 }

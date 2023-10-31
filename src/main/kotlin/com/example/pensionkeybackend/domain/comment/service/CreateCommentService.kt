@@ -6,6 +6,7 @@ import com.example.pensionkeybackend.domain.comment.presentation.request.CreateC
 import com.example.pensionkeybackend.domain.feed.facade.FeedFacade
 import com.example.pensionkeybackend.domain.user.facade.UserFacade
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.util.UUID
 
 @Service
@@ -15,6 +16,7 @@ class CreateCommentService(
     private val userFacade: UserFacade
 ) {
 
+    @Transactional
     fun execute(feedId: UUID, request: CreateCommentRequest) {
         val feed = feedFacade.getFeedById(feedId)
         val user = userFacade.getCurrentUser()

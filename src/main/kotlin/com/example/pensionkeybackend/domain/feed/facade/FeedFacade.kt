@@ -17,4 +17,7 @@ class FeedFacade(
         return feedRepository.findById(feedId).orElseThrow {FeedNotFoundException}
     }
 
+    fun existByFeedId(feedId: UUID): Boolean {
+        return feedRepository.existsById(feedId)
+    }
 }

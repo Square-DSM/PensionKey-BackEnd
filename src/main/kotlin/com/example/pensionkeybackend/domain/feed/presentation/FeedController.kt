@@ -31,7 +31,6 @@ class FeedController(
     private val queryFeedDetailsService: QueryFeedDetailsService,
     private val queryFeedListService: QueryFeedListService,
     private val deleteFeedService: DeleteFeedService,
-    private val queryUserInfoService: QueryUserInfoService,
     private val updateFeedService: UpdateFeedService
 ) {
 

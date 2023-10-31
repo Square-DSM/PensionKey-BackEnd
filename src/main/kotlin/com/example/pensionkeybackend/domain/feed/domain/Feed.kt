@@ -8,17 +8,16 @@ import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn
 import javax.persistence.ManyToOne
-import javax.persistence.OneToMany
 import javax.persistence.Table
 
 @Table(name = "tbl_feed")
 @Entity
 class Feed(
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
-    val title: String,
+    var title: String,
 
     @Column(columnDefinition = "VARCHAR(2000)", nullable = false)
-    val content: String,
+    var content: String,
 
     @Column(columnDefinition = "DATE", nullable = false)
     val createdAt: LocalDate,
@@ -29,4 +28,9 @@ class Feed(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", columnDefinition = "BINARY(16)", nullable = false)
     val user = user
+
+    fun updateFeed(title: String, content: String) {
+        this.title = title
+        this.content = content
+    }
 }

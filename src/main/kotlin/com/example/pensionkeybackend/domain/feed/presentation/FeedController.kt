@@ -9,8 +9,6 @@ import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import com.example.pensionkeybackend.domain.feed.service.UpdateFeedService
-import com.example.pensionkeybackend.domain.user.presentation.dto.QueryUserInfoResponse
-import com.example.pensionkeybackend.domain.user.service.QueryUserInfoService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping

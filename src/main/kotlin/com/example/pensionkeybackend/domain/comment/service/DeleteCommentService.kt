@@ -13,7 +13,7 @@ class DeleteCommentService(
 ) {
 
     @Transactional
-    fun deleteComment(commentId: UUID, feedId: UUID) {
+    fun execute(commentId: UUID, feedId: UUID) {
         feedFacade.existByFeedId(feedId)
         commentRepository.deleteById(commentId)
     }

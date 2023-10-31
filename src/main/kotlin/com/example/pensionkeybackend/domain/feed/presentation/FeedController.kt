@@ -52,7 +52,7 @@ class FeedController(
     fun deleteFeed(@PathVariable(name = "feed_id") feedId: UUID) {
         deleteFeedService.execute(feedId)
     }
-
+    
     @PatchMapping("/update/{feed_id}")
     fun updateFeed(@PathVariable(name = "feed_id") feedId: UUID, request: UpdateFeedRequest) =
         updateFeedService.updateFeed(feedId, request)

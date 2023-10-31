@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional
 class QueryFeedListService(
     private val feedRepository: FeedRepository
 ) {
-
     @Transactional(readOnly = true)
     fun execute() : List<FeedElement> = feedRepository.findAllByOrderByCreatedAt()
 }

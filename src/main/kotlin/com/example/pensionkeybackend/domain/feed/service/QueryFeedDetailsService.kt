@@ -17,6 +17,7 @@ class QueryFeedDetailsService(
         val feed = feedRepository.findById(feedId).orElseThrow{FeedNotFoundException}
 
         return QueryFeedDetailsResponse(
+            id = feed.id,
             title = feed.title,
             content = feed.content
         )

@@ -7,6 +7,8 @@ import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
 import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
+import com.example.pensionkeybackend.domain.user.presentation.dto.QueryUserInfoResponse
+import com.example.pensionkeybackend.domain.user.service.QueryUserInfoService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -25,7 +27,8 @@ class FeedController(
     private val createFeedService: CreateFeedService,
     private val queryFeedDetailsService: QueryFeedDetailsService,
     private val queryFeedListService: QueryFeedListService,
-    private val deleteFeedService: DeleteFeedService
+    private val deleteFeedService: DeleteFeedService,
+    private val queryUserInfoService: QueryUserInfoService
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -43,9 +46,14 @@ class FeedController(
     fun getFeedList(): List<FeedElement> {
         return queryFeedListService.execute()
     }
-    
+
     @DeleteMapping("/delete/{feed_id}")
     fun deleteFeed(@PathVariable(name = "feed_id") feedId: UUID) {
         deleteFeedService.execute(feedId)
+    }
+
+    @GetMapping
+    fun queryUserInfo(): QueryUserInfoResponse{
+        return queryUserInfoService.execute()
     }
 }

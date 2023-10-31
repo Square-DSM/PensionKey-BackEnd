@@ -4,6 +4,7 @@ import java.time.LocalDate
 import java.util.UUID
 
 data class FeedElement(
+    val id: UUID,
     val title: String,
     val userId: UUID,
     val createdAt: LocalDate

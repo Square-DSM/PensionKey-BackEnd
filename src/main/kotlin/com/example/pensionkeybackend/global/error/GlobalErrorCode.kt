@@ -7,6 +7,7 @@ enum class GlobalErrorCode(
 
     FEED_NOT_FOUND(404, "Feed Not Found"),
     NOT_DELETE_FEED(401, "Not Delete Feed"),
+    NOT_VALID_USER(403, "Not Valid User"),
 
     BAD_REQUEST(400, "Bad Request"),
     PASSWORD_MISMATCH(400, "Password Mismatched"),

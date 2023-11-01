@@ -7,7 +7,7 @@ import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
 import javax.persistence.JoinColumn
-import javax.persistence.ManyToOne
+import javax.persistence.OneToOne
 import javax.persistence.Table
 
 @Table(name = "tbl_pension")
@@ -28,7 +28,7 @@ class Pension(
     user: User
 ) : BaseUUIDEntity() {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user = user
 }

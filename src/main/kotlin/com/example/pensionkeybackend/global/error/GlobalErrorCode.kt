@@ -7,7 +7,8 @@ enum class GlobalErrorCode(
 
     FEED_NOT_FOUND(404, "Feed Not Found"),
     NOT_DELETE_FEED(401, "Not Delete Feed"),
-    NOT_VALID_USER(403, "Not Valid User"),
+
+    PENSION_NOT_FOUND(404, "Pension Not Found"),
 
     BAD_REQUEST(400, "Bad Request"),
     PASSWORD_MISMATCH(400, "Password Mismatched"),
@@ -15,8 +16,8 @@ enum class GlobalErrorCode(
     EXPIRED_TOKEN(401, "Expired Token"),
     INVALID_TOKEN(401, "Invalid Token"),
 
+    NOT_VALID_USER(403, "Not Valid User"),
     USER_NOT_FOUND(404, "User Not Found"),
-
 
     ALREADY_USER(409, "Already User"),
 

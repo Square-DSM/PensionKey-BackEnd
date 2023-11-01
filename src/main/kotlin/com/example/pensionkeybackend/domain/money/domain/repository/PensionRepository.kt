@@ -8,4 +8,5 @@ import java.util.UUID
 
 interface PensionRepository: JpaRepository<Pension, UUID> {
     fun findAllByUser(user: User): List<PensionElement>
+    fun findByUser(user: User): Pension?
 }

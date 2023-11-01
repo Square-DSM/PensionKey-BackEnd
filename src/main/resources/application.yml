@@ -20,7 +20,7 @@ spring:
     property-naming-strategy: SNAKE_CASE
 
   lifecycle:
-    timeout-per-shutdown-phase: 20s
+    timeout-per-shutdown-phase: 30s
 
 jwt:
   secret: ${SECRET_KEY}

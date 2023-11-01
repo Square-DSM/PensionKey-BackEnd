@@ -3,6 +3,7 @@ package com.example.pensionkeybackend.domain.comment.domain
 import com.example.pensionkeybackend.domain.feed.domain.Feed
 import com.example.pensionkeybackend.domain.user.domain.User
 import com.example.pensionkeybackend.global.entity.BaseUUIDEntity
+import java.time.LocalDate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -21,6 +22,9 @@ class Comment(
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
     val userAccountId: String,
+
+    @Column(columnDefinition = "DATE", nullable = false)
+    val createdAt: LocalDate,
 
     feed: Feed
 ) : BaseUUIDEntity() {

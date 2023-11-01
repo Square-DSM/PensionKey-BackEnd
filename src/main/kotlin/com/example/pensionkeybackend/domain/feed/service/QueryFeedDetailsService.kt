@@ -10,8 +10,7 @@ import java.util.*
 
 @Service
 class QueryFeedDetailsService(
-    private val feedRepository: FeedRepository,
-    private val commentRepository: CommentRepository
+    private val feedRepository: FeedRepository
 ) {
 
     @Transactional(readOnly = true)
@@ -23,8 +22,7 @@ class QueryFeedDetailsService(
             title = feed.title,
             content = feed.content,
             createdAt = feed.createdAt,
-            userAccountId = feed.userAccountId,
-            commentList = commentRepository.findAllByFeedId(feed.id)
+            userAccountId = feed.userAccountId
         )
     }
 }

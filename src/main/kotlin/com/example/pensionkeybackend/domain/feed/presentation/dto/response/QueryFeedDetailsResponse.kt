@@ -9,6 +9,5 @@ data class QueryFeedDetailsResponse(
     val title: String,
     val content: String,
     val createdAt: LocalDate,
-    val userAccountId: String,
-    val commentList: List<CommentElement>
+    val userAccountId: String
 )

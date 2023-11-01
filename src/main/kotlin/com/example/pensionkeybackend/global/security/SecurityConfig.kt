@@ -20,22 +20,22 @@ class SecurityConfig(
     @Bean
     @Throws(Exception::class)
     protected fun securityFilterChain(http: HttpSecurity): SecurityFilterChain? {
-        http
-            .formLogin().disable()
+        return http
             .csrf().disable()
-            .cors().and()
+            .formLogin().disable()
+            .cors()
+
+            .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-        http
-            .authorizeRequests()
-            // .antMatchers("/admin/head").hasAuthority(UserRole.SCH.name) TODO: 권한 설정하기
+            .and()
+            .authorizeHttpRequests()
+            .antMatchers("/**").permitAll()
             .anyRequest().permitAll()
 
-        http
-            .apply(FilterConfig(objectMapper, tokenProvider))
-
-        return http.build()
+            .and().apply(FilterConfig(objectMapper, tokenProvider))
+            .and().build()
     }
 
     @Bean

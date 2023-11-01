@@ -7,6 +7,7 @@ import com.example.pensionkeybackend.domain.user.presentation.dto.UserLoginReque
 import com.example.pensionkeybackend.global.security.jwt.TokenProvider
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class UserLoginService(
@@ -14,6 +15,8 @@ class UserLoginService(
     private val passwordEncoder: PasswordEncoder,
     private val tokenProvider: TokenProvider
 ) {
+
+    @Transactional
     fun execute(request: UserLoginRequest): TokenResponse {
         val user = userFacade.getByAccountId(request.accountId)
 

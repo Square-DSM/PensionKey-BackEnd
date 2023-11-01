@@ -9,6 +9,8 @@ import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import com.example.pensionkeybackend.domain.feed.service.UpdateFeedService
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.*
 import javax.validation.Valid
 
+@Tag(name = "게시글")
 @RequestMapping("/feeds")
 @RestController
 class FeedController(
@@ -32,27 +35,32 @@ class FeedController(
     private val updateFeedService: UpdateFeedService
 ) {
 
+    @Operation(summary = "작성")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/create")
     fun createFeed(@RequestBody @Valid request: CreateFeedRequest) {
         createFeedService.execute(request)
     }
 
+    @Operation(summary = "상세조회")
     @GetMapping("/{feed_id}")
     fun getFeedDetails(@PathVariable(name = "feed_id") feedId: UUID) : QueryFeedDetailsResponse {
         return queryFeedDetailsService.execute(feedId)
     }
 
+    @Operation(summary = "리스트")
     @GetMapping("/list")
     fun getFeedList(): List<FeedElement> {
         return queryFeedListService.execute()
     }
 
+    @Operation(summary = "삭제")
     @DeleteMapping("/delete/{feed_id}")
     fun deleteFeed(@PathVariable(name = "feed_id") feedId: UUID) {
         deleteFeedService.execute(feedId)
     }
-    
+
+    @Operation(summary = "수정")
     @PatchMapping("/update/{feed_id}")
     fun updateFeed(@PathVariable(name = "feed_id") feedId: UUID, request: UpdateFeedRequest) =
         updateFeedService.updateFeed(feedId, request)

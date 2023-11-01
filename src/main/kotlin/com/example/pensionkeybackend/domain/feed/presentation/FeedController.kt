@@ -10,6 +10,7 @@ import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import com.example.pensionkeybackend.domain.feed.service.QueryMyFeedListService
+import com.example.pensionkeybackend.domain.feed.service.SearchFeedService
 import com.example.pensionkeybackend.domain.feed.service.UpdateFeedService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
@@ -36,6 +38,7 @@ class FeedController(
     private val deleteFeedService: DeleteFeedService,
     private val updateFeedService: UpdateFeedService,
     private val queryMyFeedListService: QueryMyFeedListService,
+    private val searchFeedService: SearchFeedService,
 ) {
 
     @Operation(summary = "작성")
@@ -71,4 +74,8 @@ class FeedController(
     @Operation(summary = "내 게시글 조회")
     @GetMapping
     fun getMyFeedList(): QueryFeedListResponse = queryMyFeedListService.execute()
+
+    @Operation(summary = "검색")
+    @GetMapping("/search")
+    fun getSearchFeed(@RequestParam("keyword") keyword: String): QueryFeedListResponse = searchFeedService.execute(keyword)
 }

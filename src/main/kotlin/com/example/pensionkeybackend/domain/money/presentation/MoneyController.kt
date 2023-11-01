@@ -36,6 +36,8 @@ class MoneyController(
     @GetMapping("/pension")
     fun getPensionList(): List<PensionElement> = queryPensionListService.execute()
 
+
+    @Operation(summary = "국민 연금 상세조회")
     @GetMapping("/detail")
     fun getPensionDetails(): QueryPensionDetailsResponse = queryPensionDetailsService.execute()
 }

@@ -59,13 +59,13 @@ class TokenProvider(
     }
 
     fun parseToken(bearerToken: String?): String? {
-        return if (bearerToken != null && bearerToken.startsWith("")) {
-            return bearerToken.replace("", "")
+        return if (bearerToken != null && bearerToken.startsWith("Bearer")) {
+            return bearerToken.replace("Bearer", "")
         } else null
     }
 
     fun authorization(token: String): UsernamePasswordAuthenticationToken? {
-        token.let {
+        return token?.let {
             val userDetails: UserDetails = authDetailsService.loadUserByUsername(getTokenSubject(token))
             return UsernamePasswordAuthenticationToken(userDetails, "", userDetails.authorities)
         }

@@ -9,6 +9,7 @@ import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
 import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
+import com.example.pensionkeybackend.domain.feed.service.QueryMyFeedListService
 import com.example.pensionkeybackend.domain.feed.service.UpdateFeedService
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -33,7 +34,8 @@ class FeedController(
     private val queryFeedDetailsService: QueryFeedDetailsService,
     private val queryFeedListService: QueryFeedListService,
     private val deleteFeedService: DeleteFeedService,
-    private val updateFeedService: UpdateFeedService
+    private val updateFeedService: UpdateFeedService,
+    private val queryMyFeedListService: QueryMyFeedListService,
 ) {
 
     @Operation(summary = "작성")
@@ -65,4 +67,7 @@ class FeedController(
     @PatchMapping("/update/{feed_id}")
     fun updateFeed(@PathVariable(name = "feed_id") feedId: UUID, request: UpdateFeedRequest) =
         updateFeedService.updateFeed(feedId, request)
+
+    @Operation(summary = "내 게시글 조회")
+    fun getMyFeedList(): QueryFeedListResponse = queryMyFeedListService.execute()
 }

@@ -6,5 +6,5 @@ import java.util.UUID
 data class CommentElement(
     val id: UUID,
     val content: String,
-    val user: User
+    val userAccountId: String
 )

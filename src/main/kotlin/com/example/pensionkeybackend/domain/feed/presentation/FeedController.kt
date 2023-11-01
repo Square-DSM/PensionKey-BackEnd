@@ -4,6 +4,7 @@ import com.example.pensionkeybackend.domain.feed.presentation.dto.request.Create
 import com.example.pensionkeybackend.domain.feed.presentation.dto.request.UpdateFeedRequest
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.FeedElement
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedDetailsResponse
+import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedListResponse
 import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
 import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
@@ -50,7 +51,7 @@ class FeedController(
 
     @Operation(summary = "리스트")
     @GetMapping("/list")
-    fun getFeedList(): List<FeedElement> {
+    fun getFeedList(): QueryFeedListResponse {
         return queryFeedListService.execute()
     }
 

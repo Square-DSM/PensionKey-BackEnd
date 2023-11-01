@@ -19,6 +19,9 @@ class Comment(
 
     user: User,
 
+    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
+    val userAccountId: String,
+
     feed: Feed
 ) : BaseUUIDEntity() {
 

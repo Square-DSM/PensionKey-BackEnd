@@ -24,7 +24,8 @@ class CreateCommentService(
         commentRepository.save(Comment(
             content = request.content,
             user = user,
-            feed = feed
+            feed = feed,
+            userAccountId = user.accountId
         ))
     }
 }

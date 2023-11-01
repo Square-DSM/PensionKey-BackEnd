@@ -16,13 +16,15 @@ class CreateFeedService(
 
     @Transactional
     fun execute(request: CreateFeedRequest) {
+        val user = userFacade.getCurrentUser()
 
         feedRepository.save(
             Feed(
                 title = request.title,
                 content = request.content,
                 createdAt = LocalDate.now(),
-                user = userFacade.getCurrentUser()
+                user = user,
+                userAccountId = user.accountId,
             )
         )
     }

@@ -22,6 +22,9 @@ class Feed(
     @Column(columnDefinition = "DATE", nullable = false)
     val createdAt: LocalDate,
 
+    @Column(columnDefinition = "VARCHAR(20)", nullable = false)
+    val userAccountId: String,
+
     user: User
 ) : BaseUUIDEntity() {
 

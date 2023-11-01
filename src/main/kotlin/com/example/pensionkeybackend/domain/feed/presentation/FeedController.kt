@@ -69,5 +69,6 @@ class FeedController(
         updateFeedService.updateFeed(feedId, request)
 
     @Operation(summary = "내 게시글 조회")
+    @GetMapping
     fun getMyFeedList(): QueryFeedListResponse = queryMyFeedListService.execute()
 }

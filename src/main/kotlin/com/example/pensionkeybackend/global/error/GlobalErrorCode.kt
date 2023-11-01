@@ -9,6 +9,8 @@ enum class GlobalErrorCode(
     NOT_DELETE_FEED(401, "Not Delete Feed"),
 
     PENSION_NOT_FOUND(404, "Pension Not Found"),
+    HOUSE_NOT_FOUND(404, "House Not Found"),
+    INDIVIDUAL_NOT_FOUND(404, "Individual Not Found"),
 
     BAD_REQUEST(400, "Bad Request"),
     PASSWORD_MISMATCH(400, "Password Mismatched"),

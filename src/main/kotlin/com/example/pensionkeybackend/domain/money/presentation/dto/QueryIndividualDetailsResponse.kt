@@ -1,11 +1,11 @@
 package com.example.pensionkeybackend.domain.money.presentation.dto
 
 import java.time.LocalDate
-import java.util.UUID
+import javax.persistence.Column
 
-data class IndividualElement(
-    val id: UUID,
+data class QueryIndividualDetailsResponse(
     val companyName: String,
     val productName: String,
     val totalPaymentAmt: Int,
+    val expectPension: Int,
 )

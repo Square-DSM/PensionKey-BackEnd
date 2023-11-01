@@ -19,7 +19,8 @@ class QueryFeedDetailsService(
         return QueryFeedDetailsResponse(
             id = feed.id,
             title = feed.title,
-            content = feed.content
+            content = feed.content,
+            createdAt = feed.createdAt
         )
     }
 }

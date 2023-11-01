@@ -26,7 +26,7 @@ class UserSignUpService(
                 name = request.name,
                 organizationCode = request.organizationCode,
                 certType = request.certType,
-                indentity = request.indentity,
+                identity = request.identity,
                 certFile = request.certFile,
                 keyFile = request.keyFile,
                 certPassword = request.certPassword

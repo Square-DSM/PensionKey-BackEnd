@@ -26,7 +26,7 @@ class User(
     val certType: String,
 
     @Column(columnDefinition = "INT(15)", nullable = false)
-    val indentity: Int,
+    val identity: Int,
 
     @Column(columnDefinition = "VARCHAR(100)")
     val certFile: String?,

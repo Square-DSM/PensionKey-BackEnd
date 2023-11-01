@@ -28,7 +28,7 @@ data class UserSignUpRequest(
     val certType: String,
 
     @field:NotNull
-    val indentity: Int,
+    val identity: Int,
 
     val certFile: String?,
 

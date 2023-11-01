@@ -8,7 +8,7 @@ import com.example.pensionkeybackend.domain.user.facade.UserFacade
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate
-import java.util.UUID
+import java.util.*
 
 @Service
 class CreateCommentService(
@@ -16,18 +16,19 @@ class CreateCommentService(
     private val feedFacade: FeedFacade,
     private val userFacade: UserFacade
 ) {
-
     @Transactional
     fun execute(feedId: UUID, request: CreateCommentRequest) {
         val feed = feedFacade.getFeedById(feedId)
         val user = userFacade.getCurrentUser()
 
-        commentRepository.save(Comment(
-            content = request.content,
-            user = user,
-            feed = feed,
-            createdAt = LocalDate.now(),
-            userAccountId = user.accountId
-        ))
+        commentRepository.save(
+            Comment(
+                content = request.content,
+                user = user,
+                feed = feed,
+                createdAt = LocalDate.now(),
+                userAccountId = user.accountId
+            )
+        )
     }
 }

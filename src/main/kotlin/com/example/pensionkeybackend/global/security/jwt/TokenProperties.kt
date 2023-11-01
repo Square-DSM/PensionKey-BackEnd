@@ -1,4 +1,5 @@
 package com.example.pensionkeybackend.global.security.jwt
+
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.context.properties.ConstructorBinding
 

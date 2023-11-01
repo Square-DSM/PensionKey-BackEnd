@@ -16,24 +16,5 @@ class User(
     val password: String,
 
     @Column(columnDefinition = "VARCHAR(10)", nullable = false)
-    val name: String,
-
-    @Column(columnDefinition = "CHAR(4)", nullable = false)
-    @ColumnDefault("0001")
-    val organizationCode: String,
-
-    @Column(columnDefinition = "CHAR(3)", nullable = false)
-    val certType: String,
-
-    @Column(columnDefinition = "INT(15)", nullable = false)
-    val identity: Int,
-
-    @Column(columnDefinition = "VARCHAR(100)")
-    val certFile: String?,
-
-    @Column(columnDefinition = "VARCHAR(100)")
-    val keyFile: String?,
-
-    @Column(columnDefinition = "VARCHAR(60)")
-    val certPassword: String?
+    val name: String
 ): BaseUUIDEntity()

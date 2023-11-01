@@ -20,19 +20,4 @@ data class UserSignUpRequest(
     @field:NotBlank(message = "name은 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
     @field:Size(max = 5, message = "name은 5자 이하여야 합니다.")
     var name: String,
-
-    @field:NotBlank(message = "organizationCode은 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
-    val organizationCode: String,
-
-    @field:NotBlank(message = "certType은 Null, 공백, 띄어쓰기를 허용하지 않습니다.")
-    val certType: String,
-
-    @field:NotNull
-    val identity: Int,
-
-    val certFile: String?,
-
-    val keyFile: String?,
-
-    val certPassword: String?
 )

@@ -24,12 +24,6 @@ class UserSignUpService(
                 accountId = request.accountId,
                 password = passwordEncoder.encode(request.password),
                 name = request.name,
-                organizationCode = request.organizationCode,
-                certType = request.certType,
-                identity = request.identity,
-                certFile = request.certFile,
-                keyFile = request.keyFile,
-                certPassword = request.certPassword
             )
         )
     }

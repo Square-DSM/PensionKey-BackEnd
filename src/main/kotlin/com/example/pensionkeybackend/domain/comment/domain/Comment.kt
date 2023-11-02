@@ -3,7 +3,7 @@ package com.example.pensionkeybackend.domain.comment.domain
 import com.example.pensionkeybackend.domain.feed.domain.Feed
 import com.example.pensionkeybackend.domain.user.domain.User
 import com.example.pensionkeybackend.global.entity.BaseUUIDEntity
-import java.time.LocalDate
+import java.time.LocalDateTime
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -24,7 +24,7 @@ class Comment(
     val userAccountId: String,
 
     @Column(columnDefinition = "DATE", nullable = false)
-    val createdAt: LocalDate,
+    val createdAt: LocalDateTime,
 
     feed: Feed
 ) : BaseUUIDEntity() {

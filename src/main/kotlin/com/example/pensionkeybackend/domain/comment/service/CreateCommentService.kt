@@ -7,7 +7,7 @@ import com.example.pensionkeybackend.domain.feed.facade.FeedFacade
 import com.example.pensionkeybackend.domain.user.facade.UserFacade
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.time.LocalDate
+import java.time.LocalDateTime
 import java.util.*
 
 @Service
@@ -26,7 +26,7 @@ class CreateCommentService(
                 content = request.content,
                 user = user,
                 feed = feed,
-                createdAt = LocalDate.now(),
+                createdAt = LocalDateTime.now(),
                 userAccountId = user.accountId
             )
         )

@@ -20,7 +20,7 @@ class DeleteFeedService(
         val userId = userFacade.getCurrentUser()
         val feed = feedFacade.getFeedById(feedId)
 
-        if(userId == feed.user) throw NotDeleteFeedException
+        if(userId != feed.user) throw NotDeleteFeedException
 
         feedRepository.deleteById(feed.id)
     }

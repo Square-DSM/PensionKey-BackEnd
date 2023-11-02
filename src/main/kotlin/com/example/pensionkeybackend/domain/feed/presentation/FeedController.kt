@@ -5,11 +5,13 @@ import com.example.pensionkeybackend.domain.feed.presentation.dto.request.Update
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.FeedElement
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedDetailsResponse
 import com.example.pensionkeybackend.domain.feed.presentation.dto.response.QueryFeedListResponse
+import com.example.pensionkeybackend.domain.feed.presentation.dto.response.SearchKeyElement
 import com.example.pensionkeybackend.domain.feed.service.CreateFeedService
 import com.example.pensionkeybackend.domain.feed.service.DeleteFeedService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedDetailsService
 import com.example.pensionkeybackend.domain.feed.service.QueryFeedListService
 import com.example.pensionkeybackend.domain.feed.service.QueryMyFeedListService
+import com.example.pensionkeybackend.domain.feed.service.QuerySearchWordService
 import com.example.pensionkeybackend.domain.feed.service.SearchFeedService
 import com.example.pensionkeybackend.domain.feed.service.UpdateFeedService
 import io.swagger.v3.oas.annotations.Operation
@@ -39,6 +41,7 @@ class FeedController(
     private val updateFeedService: UpdateFeedService,
     private val queryMyFeedListService: QueryMyFeedListService,
     private val searchFeedService: SearchFeedService,
+    private val querySearchWordService: QuerySearchWordService
 ) {
 
     @Operation(summary = "작성")
@@ -78,4 +81,7 @@ class FeedController(
     @Operation(summary = "검색")
     @GetMapping("/search")
     fun getSearchFeed(@RequestParam("keyword") keyword: String): QueryFeedListResponse = searchFeedService.execute(keyword)
+
+    @GetMapping("search-key")
+    fun getSearchKey(): List<SearchKeyElement> = querySearchWordService.execute()
 }

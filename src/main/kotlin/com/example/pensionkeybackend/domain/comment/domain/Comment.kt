@@ -23,7 +23,7 @@ class Comment(
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)
     val userAccountId: String,
 
-    @Column(columnDefinition = "DATE", nullable = false)
+    @Column(columnDefinition = "DATETIME", nullable = false)
     val createdAt: LocalDateTime,
 
     feed: Feed

@@ -19,7 +19,7 @@ class Feed(
     @Column(columnDefinition = "VARCHAR(2000)", nullable = false)
     var content: String,
 
-    @Column(columnDefinition = "DATE", nullable = false)
+    @Column(columnDefinition = "DATETIME", nullable = false)
     val createdAt: LocalDateTime,
 
     @Column(columnDefinition = "VARCHAR(20)", nullable = false)

@@ -2,8 +2,7 @@ package com.example.pensionkeybackend.domain.money.domain
 
 import com.example.pensionkeybackend.domain.user.domain.User
 import com.example.pensionkeybackend.global.entity.BaseUUIDEntity
-import org.hibernate.annotations.DynamicInsert
-import java.time.LocalDateTime
+import java.time.LocalDate
 import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.FetchType
@@ -21,7 +20,7 @@ class House(
     val expectPension: Int,
 
     @Column(columnDefinition = "DATE", nullable = false)
-    val pensionEndDate: LocalDateTime,
+    val pensionEndDate: LocalDate,
 
     @Column(columnDefinition = "VARCHAR(200)", nullable = false)
     val managementBranch: String,

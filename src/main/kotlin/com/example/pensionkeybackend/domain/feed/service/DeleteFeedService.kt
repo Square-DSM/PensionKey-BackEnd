@@ -1,5 +1,6 @@
 package com.example.pensionkeybackend.domain.feed.service
 
+import com.example.pensionkeybackend.domain.comment.domain.repository.CommentRepository
 import com.example.pensionkeybackend.domain.feed.domain.repository.FeedRepository
 import com.example.pensionkeybackend.domain.feed.exception.NotDeleteFeedException
 import com.example.pensionkeybackend.domain.feed.facade.FeedFacade
@@ -11,6 +12,7 @@ import java.util.*
 @Service
 class DeleteFeedService(
     private val feedRepository: FeedRepository,
+    private val commentRepository: CommentRepository,
     private val userFacade: UserFacade,
     private val feedFacade: FeedFacade
 ) {
@@ -22,6 +24,7 @@ class DeleteFeedService(
 
         if(userId != feed.user) throw NotDeleteFeedException
 
+        commentRepository.deleteCommentsByFeedId(feed.id)
         feedRepository.deleteById(feed.id)
     }
 }

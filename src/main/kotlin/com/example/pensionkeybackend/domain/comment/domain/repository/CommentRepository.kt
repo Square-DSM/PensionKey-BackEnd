@@ -9,4 +9,5 @@ import java.util.UUID
 interface CommentRepository : CrudRepository<Comment, UUID> {
     fun findAllByFeedId(feedId: UUID): List<CommentElement>
     fun countCommentByFeedId(feedId: UUID): Int
+    fun deleteCommentsByFeedId(feedId: UUID)
 }

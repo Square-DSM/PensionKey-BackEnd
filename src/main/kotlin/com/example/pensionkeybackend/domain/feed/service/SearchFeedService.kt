@@ -21,7 +21,11 @@ class SearchFeedService(
     fun execute(keyword: String): QueryFeedListResponse {
         val user = userFacade.getCurrentUser()
         val feedList = feedRepository.findAllByTitleContaining(keyword)
-        searchWordRepository.save(SearchWord(keyword, user))
+
+        if(!searchWordRepository.existsByKeywordContains(keyword)) {
+            searchWordRepository.save(SearchWord(keyword,user))
+        }
+        
         return QueryFeedListResponse(feedList.map {
             FeedVo(
                 id = it.id,

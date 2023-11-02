@@ -8,4 +8,5 @@ import java.util.UUID
 
 interface SearchWordRepository : JpaRepository<SearchWord, UUID> {
     fun findAllByUser(user: User): List<SearchKeyElement>
+    fun existsByKeywordContains(keyword: String): Boolean
 }
